@@ -1,0 +1,105 @@
+{
+  "sources": [
+    {
+      "id": "newsapi-ai",
+      "name": "NewsAPI - AI",
+      "type": "newsapi",
+      "enabled": true,
+      "pollIntervalMinutes": 30,
+      "config": {
+        "query": "artificial intelligence OR machine learning OR LLM OR GPT OR generative AI",
+        "language": "en",
+        "sortBy": "publishedAt"
+      }
+    },
+    {
+      "id": "guardian-tech",
+      "name": "The Guardian - Technology",
+      "type": "guardian",
+      "enabled": true,
+      "pollIntervalMinutes": 60,
+      "config": {
+        "section": "technology",
+        "tag": "technology/artificialintelligenceai"
+      }
+    },
+    {
+      "id": "arxiv-cs-ai",
+      "name": "arXiv - CS.AI",
+      "type": "arxiv",
+      "enabled": true,
+      "pollIntervalMinutes": 360,
+      "config": {
+        "categories": ["cs.AI", "cs.LG", "cs.CL", "cs.CV", "cs.RO"],
+        "maxResults": 50
+      }
+    },
+    {
+      "id": "hackernews",
+      "name": "Hacker News",
+      "type": "hackernews",
+      "enabled": true,
+      "pollIntervalMinutes": 15,
+      "config": {
+        "storyType": "top",
+        "minScore": 50,
+        "aiKeywords": ["AI", "LLM", "GPT", "machine learning", "neural", "transformer", "OpenAI", "Anthropic", "Google DeepMind"]
+      }
+    },
+    {
+      "id": "techcrunch-ai",
+      "name": "TechCrunch - AI",
+      "type": "rss",
+      "enabled": true,
+      "pollIntervalMinutes": 30,
+      "config": {
+        "url": "https://techcrunch.com/category/artificial-intelligence/feed/",
+        "maxItems": 20
+      }
+    },
+    {
+      "id": "venturebeat-ai",
+      "name": "VentureBeat - AI",
+      "type": "rss",
+      "enabled": true,
+      "pollIntervalMinutes": 30,
+      "config": {
+        "url": "https://venturebeat.com/category/ai/feed/",
+        "maxItems": 20
+      }
+    },
+    {
+      "id": "wired-ai",
+      "name": "Wired - AI",
+      "type": "rss",
+      "enabled": true,
+      "pollIntervalMinutes": 60,
+      "config": {
+        "url": "https://www.wired.com/feed/tag/artificial-intelligence/latest/rss",
+        "maxItems": 15
+      }
+    },
+    {
+      "id": "mit-tech-review",
+      "name": "MIT Technology Review",
+      "type": "rss",
+      "enabled": true,
+      "pollIntervalMinutes": 120,
+      "config": {
+        "url": "https://www.technologyreview.com/feed/",
+        "maxItems": 15
+      }
+    },
+    {
+      "id": "theverge-ai",
+      "name": "The Verge - AI",
+      "type": "rss",
+      "enabled": true,
+      "pollIntervalMinutes": 30,
+      "config": {
+        "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml",
+        "maxItems": 20
+      }
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "timestamp": "2026-04-02T16:09:43.472Z",
+  "projectRoot": "/Users/yahavlapidot/Desktop/ai news",
+  "structure": {
+    "hasPackageJson": false,
+    "hasTsConfig": false,
+    "hasClaudeConfig": true,
+    "hasClaudeFlow": true
+  },
+  "scannedAt": 1775146183472
+}

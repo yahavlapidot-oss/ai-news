@@ -1,0 +1,60 @@
+{
+  "categories": [
+    {
+      "id": "llms",
+      "label": "LLMs",
+      "color": "#6366F1",
+      "icon": "brain",
+      "keywords": ["LLM", "large language model", "GPT", "Claude", "Gemini", "Llama", "Mistral", "transformer", "RLHF", "fine-tuning", "prompt", "tokenizer", "context window", "inference"],
+      "description": "Large language models, foundation models, and language AI research"
+    },
+    {
+      "id": "robotics",
+      "label": "Robotics",
+      "color": "#10B981",
+      "icon": "robot",
+      "keywords": ["robot", "robotics", "autonomous", "manipulation", "locomotion", "humanoid", "Boston Dynamics", "Figure", "embodied AI", "physical AI"],
+      "description": "AI-powered robotics, autonomous systems, and embodied intelligence"
+    },
+    {
+      "id": "startups",
+      "label": "Startups",
+      "color": "#F59E0B",
+      "icon": "rocket",
+      "keywords": ["startup", "funding", "Series A", "Series B", "venture capital", "valuation", "IPO", "raise", "investment", "unicorn"],
+      "description": "AI company funding, acquisitions, and startup ecosystem"
+    },
+    {
+      "id": "research",
+      "label": "Research",
+      "color": "#8B5CF6",
+      "icon": "flask",
+      "keywords": ["paper", "research", "study", "arxiv", "benchmark", "dataset", "experiment", "evaluation", "state-of-the-art", "SOTA", "DeepMind", "OpenAI research"],
+      "description": "Academic papers, research breakthroughs, and scientific advances"
+    },
+    {
+      "id": "tools",
+      "label": "Tools",
+      "color": "#3B82F6",
+      "icon": "wrench",
+      "keywords": ["tool", "API", "SDK", "library", "framework", "open source", "release", "launch", "product", "feature", "integration"],
+      "description": "AI tools, APIs, developer platforms, and product launches"
+    },
+    {
+      "id": "regulation",
+      "label": "Regulation",
+      "color": "#EF4444",
+      "icon": "scale",
+      "keywords": ["regulation", "law", "policy", "EU AI Act", "Congress", "legislation", "safety", "alignment", "governance", "ethics", "ban", "restriction", "compliance"],
+      "description": "AI policy, regulation, safety, and governance developments"
+    },
+    {
+      "id": "other",
+      "label": "Other",
+      "color": "#6B7280",
+      "icon": "tag",
+      "keywords": [],
+      "description": "General AI news and developments"
+    }
+  ]
+}
