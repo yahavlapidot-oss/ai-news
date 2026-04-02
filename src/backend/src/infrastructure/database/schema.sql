@@ -136,3 +136,59 @@ CREATE TABLE IF NOT EXISTS trend_signals (
 
 CREATE INDEX IF NOT EXISTS idx_trends_detected ON trend_signals(detected_at DESC);
 CREATE INDEX IF NOT EXISTS idx_trends_velocity ON trend_signals(velocity DESC);
+
+-- ─────────────────────────────────────────────
+-- Social Signals (Twitter, Reddit, HN posts)
+-- ─────────────────────────────────────────────
+CREATE TABLE IF NOT EXISTS social_signals (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  platform VARCHAR(20) NOT NULL,        -- twitter | reddit | hackernews | youtube
+  external_id VARCHAR(200) UNIQUE NOT NULL,
+  author_handle VARCHAR(100),
+  author_tier INTEGER DEFAULT 3,         -- 1=top researcher, 2=notable, 3=community
+  content TEXT,
+  url TEXT,
+  likes INTEGER DEFAULT 0,
+  reposts INTEGER DEFAULT 0,
+  replies INTEGER DEFAULT 0,
+  engagement_score FLOAT DEFAULT 0,
+  linked_article_id UUID REFERENCES articles(id),
+  posted_at TIMESTAMPTZ,
+  ingested_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS idx_social_platform ON social_signals(platform, posted_at DESC);
+CREATE INDEX IF NOT EXISTS idx_social_tier ON social_signals(author_tier, posted_at DESC);
+CREATE INDEX IF NOT EXISTS idx_social_engagement ON social_signals(engagement_score DESC);
+
+-- ─────────────────────────────────────────────
+-- Topic Velocity (trend detection windows)
+-- ─────────────────────────────────────────────
+CREATE TABLE IF NOT EXISTS topic_velocity (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  topic VARCHAR(255) NOT NULL,
+  window_start TIMESTAMPTZ NOT NULL,
+  window_end TIMESTAMPTZ NOT NULL,
+  article_count INTEGER DEFAULT 0,
+  social_mention_count INTEGER DEFAULT 0,
+  velocity_score FLOAT DEFAULT 0,       -- (current - prev) / prev
+  is_breaking BOOLEAN DEFAULT FALSE,
+  computed_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS idx_velocity_topic ON topic_velocity(topic, computed_at DESC);
+CREATE INDEX IF NOT EXISTS idx_velocity_score ON topic_velocity(velocity_score DESC, computed_at DESC);
+
+-- ─────────────────────────────────────────────
+-- Tracked Accounts
+-- ─────────────────────────────────────────────
+CREATE TABLE IF NOT EXISTS tracked_accounts (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  platform VARCHAR(20) NOT NULL,        -- twitter | youtube
+  handle VARCHAR(100) NOT NULL,
+  display_name VARCHAR(255),
+  tier INTEGER DEFAULT 2,
+  category VARCHAR(50),                 -- researcher | founder | engineer | analyst
+  active BOOLEAN DEFAULT TRUE,
+  UNIQUE(platform, handle)
+);

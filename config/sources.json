@@ -43,7 +43,7 @@
       "config": {
         "storyType": "top",
         "minScore": 50,
-        "aiKeywords": ["AI", "LLM", "GPT", "machine learning", "neural", "transformer", "OpenAI", "Anthropic", "Google DeepMind"]
+        "aiKeywords": ["AI", "LLM", "GPT", "machine learning", "neural", "transformer", "OpenAI", "Anthropic", "Google DeepMind", "Gemini", "Claude", "Llama", "Mistral"]
       }
     },
     {
@@ -99,6 +99,218 @@
       "config": {
         "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml",
         "maxItems": 20
+      }
+    },
+    {
+      "id": "arstechnica-tech",
+      "name": "Ars Technica - Technology",
+      "type": "rss",
+      "enabled": true,
+      "pollIntervalMinutes": 60,
+      "config": {
+        "url": "https://feeds.arstechnica.com/arstechnica/technology-lab",
+        "maxItems": 20
+      }
+    },
+    {
+      "id": "reuters-tech",
+      "name": "Reuters - Technology",
+      "type": "rss",
+      "enabled": true,
+      "pollIntervalMinutes": 30,
+      "config": {
+        "url": "https://feeds.reuters.com/reuters/technologyNews",
+        "maxItems": 20
+      }
+    },
+    {
+      "id": "openai-blog",
+      "name": "OpenAI Blog",
+      "type": "rss",
+      "enabled": true,
+      "pollIntervalMinutes": 240,
+      "config": {
+        "url": "https://openai.com/blog/rss/",
+        "maxItems": 10
+      }
+    },
+    {
+      "id": "anthropic-blog",
+      "name": "Anthropic News",
+      "type": "rss",
+      "enabled": true,
+      "pollIntervalMinutes": 240,
+      "config": {
+        "url": "https://www.anthropic.com/news/rss",
+        "maxItems": 10
+      }
+    },
+    {
+      "id": "deepmind-blog",
+      "name": "Google DeepMind Blog",
+      "type": "rss",
+      "enabled": true,
+      "pollIntervalMinutes": 240,
+      "config": {
+        "url": "https://deepmind.google/blog/rss/",
+        "maxItems": 10
+      }
+    },
+    {
+      "id": "google-ai-blog",
+      "name": "Google AI Blog",
+      "type": "rss",
+      "enabled": true,
+      "pollIntervalMinutes": 240,
+      "config": {
+        "url": "https://blog.google/technology/ai/rss/",
+        "maxItems": 10
+      }
+    },
+    {
+      "id": "meta-ai-blog",
+      "name": "Meta AI Blog",
+      "type": "rss",
+      "enabled": true,
+      "pollIntervalMinutes": 240,
+      "config": {
+        "url": "https://ai.meta.com/blog/rss/",
+        "maxItems": 10
+      }
+    },
+    {
+      "id": "microsoft-research-blog",
+      "name": "Microsoft Research Blog",
+      "type": "rss",
+      "enabled": true,
+      "pollIntervalMinutes": 240,
+      "config": {
+        "url": "https://www.microsoft.com/en-us/research/blog/feed/",
+        "maxItems": 10
+      }
+    },
+    {
+      "id": "huggingface-blog",
+      "name": "Hugging Face Blog",
+      "type": "rss",
+      "enabled": true,
+      "pollIntervalMinutes": 120,
+      "config": {
+        "url": "https://huggingface.co/blog/feed.xml",
+        "maxItems": 15
+      }
+    },
+    {
+      "id": "mistral-blog",
+      "name": "Mistral AI Blog",
+      "type": "rss",
+      "enabled": true,
+      "pollIntervalMinutes": 360,
+      "config": {
+        "url": "https://mistral.ai/news/rss/",
+        "maxItems": 10
+      }
+    },
+    {
+      "id": "towards-data-science",
+      "name": "Towards Data Science",
+      "type": "rss",
+      "enabled": true,
+      "pollIntervalMinutes": 240,
+      "config": {
+        "url": "https://towardsdatascience.com/feed",
+        "maxItems": 20
+      }
+    },
+    {
+      "id": "import-ai",
+      "name": "Import AI (Jack Clark)",
+      "type": "rss",
+      "enabled": true,
+      "pollIntervalMinutes": 1440,
+      "config": {
+        "url": "https://jack-clark.net/feed/",
+        "maxItems": 5
+      }
+    },
+    {
+      "id": "the-gradient",
+      "name": "The Gradient",
+      "type": "rss",
+      "enabled": true,
+      "pollIntervalMinutes": 1440,
+      "config": {
+        "url": "https://thegradient.pub/rss/",
+        "maxItems": 10
+      }
+    },
+    {
+      "id": "paperswithcode",
+      "name": "Papers With Code",
+      "type": "paperswithcode",
+      "enabled": true,
+      "pollIntervalMinutes": 360,
+      "config": {
+        "maxResults": 30
+      }
+    },
+    {
+      "id": "reddit-ml",
+      "name": "Reddit - r/MachineLearning",
+      "type": "reddit",
+      "enabled": true,
+      "pollIntervalMinutes": 30,
+      "config": {
+        "subreddit": "MachineLearning",
+        "sort": "hot",
+        "minScore": 100,
+        "limit": 25
+      }
+    },
+    {
+      "id": "reddit-artificial",
+      "name": "Reddit - r/artificial",
+      "type": "reddit",
+      "enabled": true,
+      "pollIntervalMinutes": 30,
+      "config": {
+        "subreddit": "artificial",
+        "sort": "hot",
+        "minScore": 50,
+        "limit": 20
+      }
+    },
+    {
+      "id": "reddit-localllama",
+      "name": "Reddit - r/LocalLLaMA",
+      "type": "reddit",
+      "enabled": true,
+      "pollIntervalMinutes": 30,
+      "config": {
+        "subreddit": "localllama",
+        "sort": "hot",
+        "minScore": 50,
+        "limit": 20
+      }
+    },
+    {
+      "id": "twitter-tracked",
+      "name": "X/Twitter - Tracked Accounts",
+      "type": "twitter",
+      "enabled": false,
+      "pollIntervalMinutes": 30,
+      "config": {
+        "note": "Requires TWITTER_BEARER_TOKEN. Set enabled=true once key is configured."
+      }
+    },
+    {
+      "id": "youtube-ai",
+      "name": "YouTube - AI Channels",
+      "type": "youtube",
+      "enabled": false,
+      "pollIntervalMinutes": 360,
+      "config": {
+        "note": "Requires YOUTUBE_API_KEY. Set enabled=true once key is configured."
       }
     }
   ]

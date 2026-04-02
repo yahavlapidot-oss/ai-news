@@ -9,7 +9,7 @@
     "start": "node dist/server.js",
     "test": "jest --testPathPattern=src",
     "lint": "eslint src --ext .ts",
-    "seed": "ts-node src/scripts/seed-sources.ts",
+    "seed": "ts-node src/scripts/seed-sources.ts && ts-node src/scripts/seed-accounts.ts",
     "migrate": "ts-node src/infrastructure/database/migrate.ts"
   },
   "dependencies": {

@@ -5,7 +5,13 @@ import { fetchRSSFeed } from './sources/rss';
 import { fetchNewsAPI } from './sources/newsapi';
 import { fetchArxiv } from './sources/arxiv';
 import { fetchHackerNews } from './sources/hackernews';
+import { fetchGuardian } from './sources/guardian';
+import { fetchReddit } from './sources/reddit';
+import { fetchTrackedTwitterAccounts } from './sources/twitter';
+import { fetchYouTubeChannels } from './sources/youtube';
+import { fetchPapersWithCode } from './sources/paperswithcode';
 import { storeRawArticle } from './deduplication';
+import { isRelevant } from './relevanceFilter';
 import { Source, RawArticle, IngestionResult } from './types';
 import sourcesConfig from '../../../../../config/sources.json';
 
@@ -50,8 +56,29 @@ async function fetchFromSource(source: Source): Promise<RawArticle[]> {
       );
 
     case 'guardian':
-      // Guardian uses NewsAPI-compatible format via its own endpoint
-      return [];
+      return fetchGuardian(
+        source.id,
+        (cfg.section as string) ?? 'technology',
+        cfg.tag as string | undefined
+      );
+
+    case 'reddit':
+      return fetchReddit(
+        source.id,
+        cfg.subreddit as string,
+        (cfg.sort as 'hot' | 'new' | 'top') ?? 'hot',
+        (cfg.minScore as number) ?? 50,
+        (cfg.limit as number) ?? 25
+      );
+
+    case 'twitter':
+      return fetchTrackedTwitterAccounts(source.id);
+
+    case 'youtube':
+      return fetchYouTubeChannels(source.id);
+
+    case 'paperswithcode':
+      return fetchPapersWithCode(source.id, (cfg.maxResults as number) ?? 30);
 
     default:
       return [];
@@ -68,6 +95,7 @@ export async function pollSource(sourceId: string): Promise<IngestionResult> {
   let stored = 0;
   let duplicates = 0;
   let errors = 0;
+  let filtered = 0;
 
   try {
     const articles = await fetchFromSource(source);
@@ -75,11 +103,23 @@ export async function pollSource(sourceId: string): Promise<IngestionResult> {
 
     for (const article of articles) {
       if (!article.url || !article.title) continue;
+
+      // Pre-filter: skip irrelevant content before touching AI quota
+      // arXiv, paperswithcode, and company blogs are always relevant
+      const alwaysRelevant = ['arxiv', 'paperswithcode'].includes(source.type) ||
+        ['openai-blog', 'anthropic-blog', 'deepmind-blog', 'google-ai-blog',
+         'meta-ai-blog', 'microsoft-research-blog', 'huggingface-blog', 'mistral-blog',
+         'import-ai', 'the-gradient'].includes(source.id);
+
+      if (!alwaysRelevant && !isRelevant(article.title, article.rawContent ?? '')) {
+        filtered++;
+        continue;
+      }
+
       try {
         const id = await storeRawArticle(article);
         if (id) {
           stored++;
-          // Queue for AI processing
           await getProcessingQueue().add(
             'process-article',
             { rawArticleId: id },
@@ -94,17 +134,15 @@ export async function pollSource(sourceId: string): Promise<IngestionResult> {
       }
     }
 
-    // Update last_polled_at
-    await query(
-      'UPDATE sources SET last_polled_at = NOW() WHERE id = $1',
-      [sourceId]
-    );
+    await query('UPDATE sources SET last_polled_at = NOW() WHERE id = $1', [sourceId]);
   } catch (err) {
     console.error(`Error polling source ${sourceId}:`, (err as Error).message);
     errors++;
   }
 
-  console.log(`[Poller] ${sourceId}: fetched=${fetched} stored=${stored} dupes=${duplicates} errors=${errors}`);
+  console.log(
+    `[Poller] ${sourceId}: fetched=${fetched} filtered=${filtered} stored=${stored} dupes=${duplicates} errors=${errors}`
+  );
   return { sourceId, fetched, stored, duplicates, errors };
 }
 

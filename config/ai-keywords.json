@@ -1,0 +1,27 @@
+{
+  "required": [
+    "artificial intelligence", "machine learning", "deep learning", "neural network",
+    "AI", "LLM", "large language model", "GPT", "Claude", "Gemini", "Llama", "Mistral",
+    "transformer", "diffusion model", "generative AI", "foundation model", "multimodal",
+    "reinforcement learning", "RLHF", "fine-tuning", "prompt engineering",
+    "OpenAI", "Anthropic", "Google DeepMind", "Meta AI", "Hugging Face",
+    "AGI", "alignment", "safety", "hallucination", "RAG", "embedding",
+    "inference", "training", "benchmark", "dataset", "autonomous", "agent",
+    "robotics", "computer vision", "NLP", "natural language processing",
+    "stable diffusion", "DALL-E", "Midjourney", "Sora", "Gemini", "Grok",
+    "mistral", "mixtral", "ollama", "quantization", "LoRA", "PEFT",
+    "vector database", "semantic search", "AI regulation", "EU AI Act",
+    "AI safety", "existential risk", "superintelligence", "AGI",
+    "AI startup", "AI funding", "Series", "valuation",
+    "robotics", "humanoid", "Boston Dynamics", "Figure", "1X Technologies"
+  ],
+  "boosted": [
+    "breakthrough", "state-of-the-art", "SOTA", "novel", "first ever",
+    "outperforms", "surpasses", "open source release", "paper", "research",
+    "raises", "acquires", "launches", "announces", "partners", "ban", "law"
+  ],
+  "noise": [
+    "sponsored", "advertisement", "promo code", "discount", "sale",
+    "how to use chatgpt for cooking", "AI art tutorial", "AI filters"
+  ]
+}

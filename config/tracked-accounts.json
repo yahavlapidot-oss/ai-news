@@ -1,0 +1,32 @@
+{
+  "twitter": [
+    { "handle": "karpathy",       "name": "Andrej Karpathy",    "tier": 1, "category": "researcher" },
+    { "handle": "ylecun",         "name": "Yann LeCun",         "tier": 1, "category": "researcher" },
+    { "handle": "geoffreyhinton", "name": "Geoffrey Hinton",    "tier": 1, "category": "researcher" },
+    { "handle": "demishassabis",  "name": "Demis Hassabis",     "tier": 1, "category": "founder" },
+    { "handle": "sama",           "name": "Sam Altman",         "tier": 1, "category": "founder" },
+    { "handle": "DarioAmodei",    "name": "Dario Amodei",       "tier": 1, "category": "founder" },
+    { "handle": "ilyasut",        "name": "Ilya Sutskever",     "tier": 1, "category": "researcher" },
+    { "handle": "fchollet",       "name": "François Chollet",   "tier": 1, "category": "researcher" },
+    { "handle": "rasbt",          "name": "Sebastian Raschka",  "tier": 2, "category": "researcher" },
+    { "handle": "natolambert",    "name": "Nathan Lambert",     "tier": 2, "category": "researcher" },
+    { "handle": "rohanpaul_ai",   "name": "Rohan Paul",         "tier": 2, "category": "researcher" },
+    { "handle": "realGeorgeHotz", "name": "George Hotz",        "tier": 2, "category": "engineer" },
+    { "handle": "simonw",         "name": "Simon Willison",     "tier": 2, "category": "engineer" },
+    { "handle": "swyx",           "name": "swyx",               "tier": 2, "category": "engineer" },
+    { "handle": "goodside",       "name": "Riley Goodside",     "tier": 2, "category": "engineer" },
+    { "handle": "emollick",       "name": "Ethan Mollick",      "tier": 2, "category": "analyst" },
+    { "handle": "GaryMarcus",     "name": "Gary Marcus",        "tier": 2, "category": "analyst" },
+    { "handle": "mreflow",        "name": "Matt Wolfe",         "tier": 2, "category": "analyst" },
+    { "handle": "benthompson",    "name": "Ben Thompson",       "tier": 2, "category": "analyst" },
+    { "handle": "AravindSriniv15","name": "Aravind Srinivas",   "tier": 1, "category": "founder" }
+  ],
+  "youtube": [
+    { "channelId": "UCWX3yGbODI3gBfAMBjFOKOA", "name": "Andrej Karpathy",    "tier": 1 },
+    { "channelId": "UCbmNph6atAoGfqLoCL_duAg", "name": "Yannic Kilcher",      "tier": 1 },
+    { "channelId": "UCZHmQk67mSJgfCCTn7xBfew", "name": "Two Minute Papers",   "tier": 2 },
+    { "channelId": "UCi0Hd3U6xb4V0ApUhiXFCLA", "name": "Code Bullet",         "tier": 3 },
+    { "channelId": "UC0RhatS1pyxInC00YKjjBqQ", "name": "Marques Brownlee (AI)", "tier": 2 },
+    { "channelId": "UCnUYZLuoy1rq1aVMwx4aTzw", "name": "3Blue1Brown",         "tier": 2 }
+  ]
+}

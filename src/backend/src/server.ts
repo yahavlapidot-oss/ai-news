@@ -9,6 +9,7 @@ import { userRouter } from './api/user.router';
 import { startProcessingWorker } from './infrastructure/queue/workers/processing.worker';
 import { startIngestionScheduler } from './infrastructure/queue/workers/ingestion.worker';
 import { startBriefingScheduler } from './infrastructure/queue/workers/briefing.worker';
+import { startTrendDetector } from './domains/processing/trendDetector';
 
 const app = express();
 const PORT = process.env.PORT ?? 3001;
@@ -34,6 +35,7 @@ app.use((_req, res) => res.status(404).json({ error: 'Not found' }));
 startProcessingWorker();
 startIngestionScheduler();
 startBriefingScheduler();
+startTrendDetector();
 
 app.listen(PORT, () => {
   console.log(`[Server] AI Insight Hub backend running on port ${PORT}`);

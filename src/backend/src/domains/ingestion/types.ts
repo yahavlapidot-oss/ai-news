@@ -10,10 +10,25 @@ export interface RawArticle {
 export interface Source {
   id: string;
   name: string;
-  type: 'newsapi' | 'guardian' | 'rss' | 'arxiv' | 'hackernews';
+  type: 'newsapi' | 'guardian' | 'rss' | 'arxiv' | 'hackernews'
+      | 'reddit' | 'twitter' | 'youtube' | 'paperswithcode' | 'semanticscholar';
   enabled: boolean;
   pollIntervalMinutes: number;
   config: Record<string, unknown>;
+}
+
+export interface SocialSignal {
+  platform: 'twitter' | 'reddit' | 'hackernews' | 'youtube';
+  externalId: string;
+  authorHandle: string;
+  authorTier: 1 | 2 | 3;
+  content: string;
+  url?: string;
+  likes: number;
+  reposts: number;
+  replies: number;
+  engagementScore: number;
+  postedAt: Date;
 }
 
 export interface IngestionResult {
